@@ -9,13 +9,13 @@ var connection = mysql.createConnection({
   database: 'burger_db'
 });
 
-module.exports = function(nodeToSql) {
-  connection.connect(function(err) {
-    if (err) {
-      console.error('error connecting: ' + err.stack);
-      return;
-    }
+connection.connect(function(err) {
+  if (err) {
+    console.error('error connecting: ' + err.stack);
+    return;
+  }
 
-    console.log('connected as id ' + connection.threadId);
-  });
-};
+  console.log('connected as id ' + connection.threadId);
+});
+
+module.exports = connection;
