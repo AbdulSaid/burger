@@ -4,11 +4,11 @@
 <div id="burgerAvail">
   <h2>Burgers You Can Eat:</h2>
   <ul>
-    {{#each Burgers}} {{#unless this.devoured}}
+    {{#each burgers}} {{#unless this.devoured}}
     <li>
       {{this.id}}. {{this.burger_name}}
 
-      <form action="/{{this.id}}?_method=PUT" method="POST">
+      <form action="/{{this.id}}" method="POST">
         <input type="hidden" name="devoured" value="false">
         <button class="btn btn-warning" type="submit"> Eat Me!</button>
       </form>
