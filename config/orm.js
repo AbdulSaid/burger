@@ -1,5 +1,5 @@
 // Require in the connection to the database
-require('./connection');
+var connection = require('./connection');
 
 // Create methods that will execute the necessary MYSQL commads in the controlers
 var orm = {
