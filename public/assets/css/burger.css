@@ -1,6 +1,8 @@
 body {
-  font-family: 'Germania One', cursive;
+  font-family: sans-serif;
   width: 100%;
+  background: ghostwhite;
+  margin: 0 auto;
 }
 
 h1 {
@@ -8,6 +10,9 @@ h1 {
   margin-left: 20%;
   margin-bottom: 3%;
   margin-top: 2%;
+  text-align: center;
+  margin: 50px;
+  font-size: 65px;
 }
 
 #burgerAvail {
