@@ -17,16 +17,16 @@ router.get('/', function(req, res) {
   });
 });
 
-router.post('/', function(req, res) {
-  burger.insertOne(req.body.burger_name, function() {
+router.post('/burgers', function(req, res) {
+  burger.insertOne(['burger_name'], [req.body.burger_name], function() {
     res.redirect('/');
   });
 });
 
-router.put('/:id', function(req, res) {
-  var id = req.params.id;
-  console.log('iD of burger' + id);
-  burger.updateOne(id, function(result) {
+router.put('/burgers/:id', function(req, res) {
+  var condition = 'id = ' + req.params.id;
+  console.log('iD of burger' + condition);
+  burger.updateOne({ devoured: true }, condition, function(result) {
     if (result.changedRows == 0) {
       return res.status(404).end();
     } else {

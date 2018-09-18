@@ -2,7 +2,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
-
+var methodOverride = require('method-override');
 var app = express();
 
 // Set the port of our application
@@ -15,6 +15,9 @@ app.use(bodyParser.json());
 
 // Use static
 app.use(express.static(path.join(__dirname, 'public/assets')));
+
+// Override with POST having ?_method=DELETE
+app.use(methodOverride('_method'));
 
 // Set up Handlebars
 var exphbs = require('express-handlebars');

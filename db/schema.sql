@@ -8,7 +8,7 @@ USE burger_db;
 CREATE TABLE burgers (
   id int AUTO_INCREMENT not null,
   burger_name VARCHAR(30) NOT NULL,
-  devoured boolean,
+  devoured boolean DEFAULT false,
   PRIMARY KEY(id)
 );
 

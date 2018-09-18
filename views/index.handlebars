@@ -1,4 +1,4 @@
-<h1>EAT DA BURGER</h1>
+{{!-- <h1>EAT DA BURGER</h1>
 <br>
 
 <div id="burgerAvail">
@@ -8,7 +8,7 @@
     <li>
       {{this.id}}. {{this.burger_name}}
 
-      <form action="/{{this.id}}" method="POST">
+      <form action="/{{this.id}}?_method=PUT" method="POST">
         <input type="hidden" name="devoured" value="false">
         <button class="btn btn-warning" type="submit"> Eat Me!</button>
       </form>
@@ -38,4 +38,47 @@
     </div>
     <button class="btn btn-primary" type="submit">Add Burger</button>
   </form>
+</div> --}}
+
+<h1>Eat-Da-Burger!</h1>
+
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col s6">
+        {{#each burgers}}
+        {{#unless this.devoured}}
+        <div>
+          <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+            <button type="submit" class='burgerAvailable'> {{this.burger_name}}</button>
+          </form>
+        </div>
+        {{/unless}}
+        {{/each}}
+      </div>
+
+      <div class="col s6">
+        {{#each burgers}}
+        {{#if this.devoured}}
+        <div class='burgerEaten'>
+          <div>
+            {{this.burger_name}}
+          </div>
+        </div>
+        {{/if}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</main>
+
+<h2>Add A Burger Option</h2>
+
+<div class="row">
+  <div class="col s12">
+    <form action="/burgers" method="POST">
+      <input type="text" id="name" name="burger_name" placeholder="Uber Delicious Burger">
+      <button type="submit" class="addBurgerButton">Add The Burger</button>
+    </form>
+  </div>
 </div>
